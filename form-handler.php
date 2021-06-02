@@ -1,21 +1,17 @@
-<?php 
+<?php
+//get data from form  
 $name = $_POST['name'];
-$visitor_email = $_POST['email'];
-$subject = $_POST['subject'];
-$message = $_POST['message'];
-
-$email_from = 'info@eduford-landing-page.herokuapp.com';
-
-$email_subject = 'New Form Submission';
-
-$email_body = "User Name : $name.\n".
-              "User Email: $visitor_email.\n."
-              "User Message: $message.\n.";
-
-$to = 'amadertottho0012@gmail.com';
-$headers = "From: $email_from \r\n";
-$headers .= "Reply to: $email_from \r\n";
-mail($to,$email_subject,$email_body,$headers);
-header("Location: contact.html");
-
+$email= $_POST['email'];
+$subject= $_POST['subject'];
+$message= $_POST['message'];
+$to = "mahamudulhasantanvir16@gmail.com";
+$subject = "Mail From website";
+$txt ="Name = ". $name . "\r\n  Email = " . $email . "\r\n Message =" . $message;
+$headers = "From: noreply@eduford-landing-page.herokuapp.com" . "\r\n" .
+"CC: somebodyelse@example.com";
+if($email!=NULL){
+    mail($to,$subject,$txt,$headers);
+}
+//redirect
+header("Location:contact.html");
 ?>
